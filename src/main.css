@@ -9,18 +9,49 @@
   height: inherit;
 }
 
+:root {
+  --light-gray: #F3F5F2;
+  --black: #4E4B5C;
+}
+
 body {
-  font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   margin: 0;
-  text-align: center;
-  color: #293c4b;
+  background-color: var(--light-gray);
+  color: var(--black);
 }
 
 h1 {
-  font-size: 30px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-img {
-  margin: 20px 0;
-  max-width: 200px;
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 74.9%;
+    letter-spacing: -0.06em;
+    color: var(--black);
+    white-space: pre-line;
+    display: block;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 80px 0 80px;
+}
+
+.header i {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.header i:hover {
+    opacity: 1;
+}
+
+i {
+    font-size: 50px;
+}
+
