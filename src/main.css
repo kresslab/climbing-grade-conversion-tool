@@ -55,7 +55,13 @@ h1 {
     justify-content: space-around;
 }
 
+.dropdown__label:hover {
+    text-decoration: underline;
+}
+
 .dropdown__label {
+    text-align: center;
+    cursor: pointer;
     font-size: 30px;
 }
 
@@ -127,4 +133,54 @@ i {
     position: absolute;
     top: 38px;
     right: 19px;
+}
+
+.icon-info {
+    display: flex;
+    align-items: center;
+}
+
+.overlay__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+    background: white;
+    padding: 49px 40px;
+    min-width: 700px;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 90% auto;
+    grid-template-rows: 0.1fr 1fr;
+}
+
+.overlay__title-wrapper {
+    border-bottom: 1px solid var(--black);
+}
+
+.overlay__close-btn i {
+    color: var(--red);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.overlay__close-btn  {
+    cursor: pointer;
+}
+
+.overlay__close-btn i::before {
+    margin: 0;
+}
+
+.overlay__close-btn:hover i::before {
+    color: #d55353;
 }

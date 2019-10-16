@@ -1,4 +1,4 @@
-module Main exposing (Model, Msg(..), init, main, update, view)
+module Main exposing (Model, init, main, update, view)
 
 --import Html.Extra as Html
 
@@ -6,8 +6,10 @@ import Browser
 import Debug exposing (log)
 import Html exposing (Html, div, h1, i, option, p, select, text)
 import Html.Attributes exposing (class, selected, value)
-import Html.Events exposing (onInput)
+import Html.Events exposing (onClick, onInput)
 import List exposing (map)
+import Messages exposing (..)
+import OverlayContent
 import Svg exposing (path, svg)
 import Svg.Attributes exposing (d, fill, height, viewBox, width)
 
@@ -70,22 +72,27 @@ singleGrade g =
             map (\gr -> gr.skill) grades
 
 
+type alias MaybeContent =
+    Maybe OverlayContent.Content
+
+
 type alias Model =
     { currentGrade : Int
+    , currentOverlay : ContentKind
     }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( { currentGrade = 8 }, Cmd.none )
+    ( { currentGrade = 8
+      , currentOverlay = None
+      }
+    , Cmd.none
+    )
 
 
 
 ---- UPDATE ----
-
-
-type Msg
-    = SetCurrentGrade Int
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -93,6 +100,12 @@ update msg model =
     case msg of
         SetCurrentGrade i ->
             ( { model | currentGrade = i }, Cmd.none )
+
+        SetCurrentOverlay o ->
+            ( { model | currentOverlay = log "currentOverlay" o }, Cmd.none )
+
+        NoOp ->
+            ( model, Cmd.none )
 
 
 
@@ -115,10 +128,47 @@ handleSetCurrentGrade s =
     SetCurrentGrade (Maybe.withDefault 0 (String.toInt s))
 
 
-viewDropdown : String -> List String -> Model -> Html Msg
-viewDropdown title os model =
+handleLabelClick : GradeClassification -> Msg
+handleLabelClick classification =
+    case classification of
+        YDS ->
+            SetCurrentOverlay YDSWiki
+
+        UIAA ->
+            SetCurrentOverlay UIAAWiki
+
+        French ->
+            SetCurrentOverlay FrenchWiki
+
+        Skill ->
+            SetCurrentOverlay SkillBlurb
+
+
+labelText : GradeClassification -> String
+labelText classification =
+    case classification of
+        YDS ->
+            "YDS"
+
+        French ->
+            "French"
+
+        UIAA ->
+            "UIAA"
+
+        Skill ->
+            "Basic Skill"
+
+
+viewDropdown : GradeClassification -> List String -> Model -> Html Msg
+viewDropdown classification os model =
     div [ class "dropdown" ]
-        [ p [ class "dropdown__label" ] [ text title ]
+        [ p [ onClick (handleLabelClick classification), class "dropdown__label" ]
+            [ text
+                (labelText
+                    classification
+                )
+            ]
         , div [ class "select__wrapper" ]
             [ select [ onInput handleSetCurrentGrade ]
                 (List.indexedMap
@@ -139,10 +189,10 @@ viewDropdown title os model =
 viewDropDowns : Model -> Html Msg
 viewDropDowns model =
     div [ class "dropdowns" ]
-        [ viewDropdown "French" (singleGrade French) model
-        , viewDropdown "UIAA" (singleGrade UIAA) model
-        , viewDropdown "YDS" (singleGrade YDS) model
-        , viewDropdown "Basic Skill" (singleGrade Skill) model
+        [ viewDropdown French (singleGrade French) model
+        , viewDropdown UIAA (singleGrade UIAA) model
+        , viewDropdown YDS (singleGrade YDS) model
+        , viewDropdown Skill (singleGrade Skill) model
         ]
 
 
@@ -154,7 +204,40 @@ Grade
 Conversion
 Tool
 """ ]
-        , i [ class "icon-info" ] []
+        , i [ onClick (SetCurrentOverlay Info), class "icon-info" ] []
+        ]
+
+
+viewOverlays : Model -> Html Msg
+viewOverlays model =
+    case model.currentOverlay of
+        Info ->
+            viewOverlay OverlayContent.contentInfo
+
+        YDSWiki ->
+            viewOverlay OverlayContent.contentYDS
+
+        UIAAWiki ->
+            viewOverlay OverlayContent.contentUIAA
+
+        FrenchWiki ->
+            viewOverlay OverlayContent.contentFrench
+
+        SkillBlurb ->
+            viewOverlay OverlayContent.contentSkill
+
+        None ->
+            div [] [ text "" ]
+
+
+viewOverlay : OverlayContent.Content -> Html Msg
+viewOverlay content =
+    div [ class "overlay__bg" ]
+        [ div [ class "overlay" ]
+            [ div [ class "overlay__title-wrapper" ] [ h1 [ class "overlay__title" ] [ text content.title ] ]
+            , div [ class "overlay__close-btn", onClick (SetCurrentOverlay None) ] [ i [ class "icon-close" ] [] ]
+            , div [ class "overlay__content" ] [ content.body ]
+            ]
         ]
 
 
@@ -163,6 +246,7 @@ view model =
     div []
         [ viewHeader
         , viewDropDowns model
+        , viewOverlays model
         ]
 
 
