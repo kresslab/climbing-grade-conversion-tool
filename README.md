@@ -8,6 +8,10 @@ functional programming on the frontend.
 * [Design inspiration](https://www.are.na/travis-shears/playful-ui)
 * [Climbing grade references](https://www.are.na/travis-shears/climbing-grades)
 
+## Screenshots
+
+![tool screenshot](./climbing-grade-conversion-tool-screenshot.png)
+
 ## Dev env
 
 This project was bootstrapped with [Create Elm App](https://github.com/halfzebra/create-elm-app).
