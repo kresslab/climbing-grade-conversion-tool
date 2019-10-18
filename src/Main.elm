@@ -3,7 +3,6 @@ module Main exposing (Model, init, main, update, view)
 --import Html.Extra as Html
 
 import Browser
-import Debug exposing (log)
 import Html exposing (Html, div, h1, i, option, p, select, text)
 import Html.Attributes exposing (class, selected, value)
 import Html.Events exposing (onClick, onInput)
@@ -102,7 +101,7 @@ update msg model =
             ( { model | currentGrade = i }, Cmd.none )
 
         SetCurrentOverlay o ->
-            ( { model | currentOverlay = log "currentOverlay" o }, Cmd.none )
+            ( { model | currentOverlay = o }, Cmd.none )
 
         NoOp ->
             ( model, Cmd.none )
