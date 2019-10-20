@@ -48,11 +48,26 @@ h1 {
     padding: 80px 80px 0 80px;
 }
 
+@media only screen and (max-width: 800px) {
+    .header {
+	padding: 40px 40px 0 40px;
+    }
+}
+
 .dropdowns {
     padding: 80px 80px 0 80px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+@media only screen and (max-width: 800px) {
+    .dropdowns {
+	padding: 40px 40px 80px 40px;
+	flex-direction: column;
+	flex-wrap: nowrap;
+        align-items: center;
+    }
 }
 
 .dropdown__label:hover {
@@ -64,6 +79,18 @@ h1 {
     cursor: pointer;
     font-size: 30px;
 }
+
+@media only screen and (max-width: 800px) {
+    .dropdown__label {
+	font-size: 25px;
+	margin: 10px 0;
+    }
+
+    .dropdown {
+	padding-bottom: 20px;
+    }
+}
+
 
 .dropdown:nth-child(1) .select__wrapper::before {
     background: var(--purple);
@@ -102,6 +129,13 @@ select {
     color: var(--black);
 }
 
+@media only screen and (max-width: 800px) {
+    select {
+	font-size: 25px;
+	padding: 20px 48px 20px 15px;
+	color: var(--black);
+    }
+}
 .select__wrapper {
     position: relative;
 }
@@ -129,6 +163,12 @@ i {
     font-size: 50px;
 }
 
+@media only screen and (max-width: 800px) {
+    i {
+	font-size: 40px;
+    }
+}
+
 .down-arrow {
     position: absolute;
     top: 38px;
@@ -141,26 +181,44 @@ i {
 }
 
 .overlay__bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*height: 100%;*/
+    min-height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/*@media only screen and (max-width: 800px) {*/
+    /*.overlay__bg {*/
+	/*min-height: auto;*/
+    /*}*/
+/*}*/
 
 .overlay {
     background: white;
     padding: 49px 40px;
-    min-width: 700px;
     max-width: 900px;
     display: grid;
     grid-template-columns: 90% auto;
     grid-template-rows: 0.1fr 1fr;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 800px) {
+    .overlay {
+	min-width: 85vw;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto 30vh;
+	grid-template-areas: "top"
+			     "mid"
+		             "bot";
+    }
 }
 
 .overlay__title-wrapper {
@@ -173,8 +231,21 @@ i {
     justify-content: flex-end;
 }
 
+
 .overlay__close-btn  {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    .overlay__close-btn {
+	display: flex;
+        align-items: center;
+        grid-area: top;
+	justify-self: end;
+    }
+    .overlay__content {
+        overflow-y: scroll;
+    }
 }
 
 .overlay__close-btn i::before {
@@ -184,3 +255,4 @@ i {
 .overlay__close-btn:hover i::before {
     color: #d55353;
 }
+
