@@ -48,3 +48,12 @@ Currently production is hosted in AWS with files in s3 bucket, domain DNS in rou
 front caching connecting the two. In the future I'd like to get this into terriform for its more
 reproducible.
 
+## TODO
+
+- [ ] style for mobile
+- [ ] add missing climbing grades
+- [ ] bouldering grades?
+    - colors of holds at local gyms converted?
+    - rotating 3D hold models colored for difficulty?
+    - separate site?
+    - different tech?
