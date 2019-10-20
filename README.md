@@ -48,8 +48,14 @@ Currently production is hosted in AWS with files in s3 bucket, domain DNS in rou
 front caching connecting the two. In the future I'd like to get this into terriform for its more
 reproducible.
 
+### Deploying to production
+
+- `$ make` will build files into ./build folder
+- `$ make deploy` will build then push files to aws
+
 ## TODO
 
+- [X] script building
 - [X] script deployment
 - [X] style for mobile
 - [ ] add missing climbing grades
