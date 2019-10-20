@@ -50,6 +50,7 @@ reproducible.
 
 ## TODO
 
+- [X] script deployment
 - [ ] style for mobile
 - [ ] add missing climbing grades
 - [ ] bouldering grades?
