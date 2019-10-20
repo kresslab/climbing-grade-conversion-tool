@@ -51,7 +51,7 @@ reproducible.
 ## TODO
 
 - [X] script deployment
-- [ ] style for mobile
+- [X] style for mobile
 - [ ] add missing climbing grades
 - [ ] bouldering grades?
     - colors of holds at local gyms converted?
