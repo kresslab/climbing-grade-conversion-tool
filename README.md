@@ -50,7 +50,10 @@ reproducible.
 
 ## TODO
 
+- [ ] style for mobile
 - [ ] add missing climbing grades
 - [ ] bouldering grades?
     - colors of holds at local gyms converted?
-    - rotating 3d hold models colored for difficulity?
+    - rotating 3D hold models colored for difficulty?
+    - separate site?
+    - different tech?
