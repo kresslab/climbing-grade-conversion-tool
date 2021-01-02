@@ -2,7 +2,7 @@ module OverlayContent exposing
     ( Content
     , contentFrench
     , contentInfo
-    , contentSkill
+    , contentAus
     , contentUIAA
     , contentYDS
     )
@@ -87,11 +87,15 @@ countries and in many international events outside the USA. -- [wikipedia](http:
     }
 
 
-contentSkill : Content
-contentSkill =
-    { title = "Basic Skill Rating"
+contentAus : Content
+contentAus =
+    { title = "The Ewbank System"
     , body =
         Markdown.toHtml [ class "overlay__content" ] """
-The basic skill rating is completly made up and just for general idea. I found it in tables [here](https://www.guidedolomiti.com/en/rock-climbing-grades/)
+Australian, New Zealand and South African climbers like to keep it simple, as such, they have one of the most 
+straight-forward climbing grade systems in the world, invented in the 60's by John Ewbank.
+Running from 1 to 35, the Ewbank climbing grade system uses one number to represent the technical 
+difficulty, exposure, length, quality of rock, protection and any additional factors that contribute
+to the difficulty of a route. -- [outdoorraw](https://www.outdoorraw.com.au/australian-climbing-grades-chart)
 """
     }

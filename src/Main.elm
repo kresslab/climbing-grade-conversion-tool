@@ -21,37 +21,37 @@ type GradeClassification
     = French
     | UIAA
     | YDS
-    | Skill
+    | EBS
 
 
 type alias Grade =
     { french : String
     , uiaa : String
     , yds : String
-    , skill : String
+    , ewbank : String
     }
 
 
 grades : List Grade
 grades =
-    [ { french = "1", uiaa = "1", yds = "5", skill = "Novice" }
-    , { french = "2", uiaa = "2", yds = "5.1/5.2", skill = "Novice" }
-    , { french = "3", uiaa = "3", yds = "5.3/5.4", skill = "Novice" }
-    , { french = "4a", uiaa = "4", yds = "5.5", skill = "Beginner" }
-    , { french = "4b", uiaa = "4+", yds = "5.6", skill = "Beginner" }
-    , { french = "4c", uiaa = "5", yds = "5.7", skill = "Beginner" }
-    , { french = "5a", uiaa = "5+", yds = "5.8", skill = "Beginner" }
-    , { french = "5b", uiaa = "6-", yds = "5.9", skill = "Intermediate" }
-    , { french = "5c", uiaa = "6", yds = "5.10a", skill = "Intermediate" }
-    , { french = "6a", uiaa = "6+", yds = "5.10b", skill = "Intermediate" }
-    , { french = "6a+", uiaa = "7-", yds = "5.10c", skill = "Intermediate" }
-    , { french = "6b", uiaa = "7", yds = "5.10d", skill = "Intermediate" }
-    , { french = "6b+", uiaa = "7+", yds = "5.11a", skill = "Advanced" }
-    , { french = "6c", uiaa = "8-", yds = "5.11b", skill = "Advanced" }
-    , { french = "6c+", uiaa = "8", yds = "5.11c", skill = "Advanced" }
-    , { french = "7a", uiaa = "8+", yds = "5.11d", skill = "Advanced" }
-    , { french = "7a+", uiaa = "9-", yds = "5.12a", skill = "Advanced" }
-    , { french = "7b", uiaa = "9-/9", yds = "5.12b", skill = "Expert" }
+    [ { french = "1", uiaa = "1", yds = "5", ewbank = "4" }
+    , { french = "2", uiaa = "2", yds = "5.1/5.2", ewbank = "5" }
+    , { french = "3", uiaa = "3", yds = "5.3/5.4", ewbank = "9" }
+    , { french = "4a", uiaa = "4", yds = "5.5", ewbank = "12" }
+    , { french = "4b", uiaa = "4+", yds = "5.6", ewbank = "14" }
+    , { french = "4c", uiaa = "5", yds = "5.7", ewbank = "15" }
+    , { french = "5a", uiaa = "5+", yds = "5.8", ewbank = "16" }
+    , { french = "5b", uiaa = "6-", yds = "5.9", ewbank = "17" }
+    , { french = "5c", uiaa = "6", yds = "5.10a", ewbank = "18" }
+    , { french = "6a", uiaa = "6+", yds = "5.10b", ewbank = "19" }
+    , { french = "6a+", uiaa = "7-", yds = "5.10c", ewbank = "20" }
+    , { french = "6b", uiaa = "7", yds = "5.10d", ewbank = "21" }
+    , { french = "6b+", uiaa = "7+", yds = "5.11a", ewbank = "22" }
+    , { french = "6c", uiaa = "8-", yds = "5.11b", ewbank = "23" }
+    , { french = "6c+", uiaa = "8", yds = "5.11c", ewbank = "24" }
+    , { french = "7a", uiaa = "8+", yds = "5.11d", ewbank = "25" }
+    , { french = "7a+", uiaa = "9-", yds = "5.12a", ewbank = "26" }
+    , { french = "7b", uiaa = "9-/9", yds = "5.12b", ewbank = "27" }
     ]
 
 
@@ -67,8 +67,8 @@ singleGrade g =
         YDS ->
             map (\gr -> gr.yds) grades
 
-        Skill ->
-            map (\gr -> gr.skill) grades
+        EBS ->
+            map (\gr -> gr.ewbank) grades
 
 
 type alias MaybeContent =
@@ -139,8 +139,8 @@ handleLabelClick classification =
         French ->
             SetCurrentOverlay FrenchWiki
 
-        Skill ->
-            SetCurrentOverlay SkillBlurb
+        EBS ->
+            SetCurrentOverlay EwbankWiki
 
 
 labelText : GradeClassification -> String
@@ -155,8 +155,8 @@ labelText classification =
         UIAA ->
             "UIAA"
 
-        Skill ->
-            "Basic Skill"
+        EBS ->
+            "EBS"
 
 
 viewDropdown : GradeClassification -> List String -> Model -> Html Msg
@@ -191,7 +191,7 @@ viewDropDowns model =
         [ viewDropdown French (singleGrade French) model
         , viewDropdown UIAA (singleGrade UIAA) model
         , viewDropdown YDS (singleGrade YDS) model
-        , viewDropdown Skill (singleGrade Skill) model
+        , viewDropdown EBS (singleGrade EBS) model
         ]
 
 
@@ -222,8 +222,8 @@ viewOverlays model =
         FrenchWiki ->
             viewOverlay OverlayContent.contentFrench
 
-        SkillBlurb ->
-            viewOverlay OverlayContent.contentSkill
+        EwbankWiki ->
+            viewOverlay OverlayContent.contentAus
 
         None ->
             div [] [ text "" ]

@@ -14,5 +14,5 @@ type ContentKind
     | YDSWiki
     | UIAAWiki
     | FrenchWiki
-    | SkillBlurb
+    | EwbankWiki
     | None
