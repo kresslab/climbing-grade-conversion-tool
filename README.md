@@ -27,20 +27,10 @@ Reference that doc for most things.
 `$ elm-app install <package-name>`
 
 
-### Installing JavaScript packages
+## Contributions
 
-To use JavaScript packages from npm, you'll need to add a `package.json`, install the dependencies, and you're ready to go.
-
-```sh
-npm init -y # Add package.json
-npm install --save-dev pouchdb-browser # Install library from npm
-```
-
-```js
-// Use in your JS code
-import PouchDB from 'pouchdb-browser';
-const db = new PouchDB('mydb');
-```
+Special thanks to @kressnick25 for adding the Ewbank grading system,
+[commit](https://github.com/BTBTravis/climbing-grade-conversion-tool/commit/8ff5c3d751516ba6ed6a465cdc3053a408843429)
 
 ## Production
 
