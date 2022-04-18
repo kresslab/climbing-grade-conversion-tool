@@ -1,0 +1,26 @@
+{
+  "name": "climbing-grade-conversion-tool",
+  "version": "1.0.0",
+  "description": "On vacation in Italy climbing grades are French, at home they are UIAA, and back in the states they\r are YDS, so I built this tool as a quick reference. Also another chance to explore elm and\r functional programming on the frontend.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "create-elm-app": "^5.22.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kressnick25/climbing-grade-conversion-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kressnick25/climbing-grade-conversion-tool/issues"
+  },
+  "homepage": "https://github.com/kressnick25/climbing-grade-conversion-tool#readme"
+}
