@@ -21,7 +21,7 @@ Reference that doc for most things.
 `$ elm-app start`
 
 *Build for production into /build folder:*  
-`$ elm-app start`
+`$ elm-app build`
 
 *Install elm packages with:*  
 `$ elm-app install <package-name>`
