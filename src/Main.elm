@@ -48,10 +48,21 @@ grades =
     , { french = "6b", uiaa = "7", yds = "5.10d", ewbank = "21" }
     , { french = "6b+", uiaa = "7+", yds = "5.11a", ewbank = "22" }
     , { french = "6c", uiaa = "8-", yds = "5.11b", ewbank = "23" }
-    , { french = "6c+", uiaa = "8", yds = "5.11c", ewbank = "24" }
-    , { french = "7a", uiaa = "8+", yds = "5.11d", ewbank = "25" }
-    , { french = "7a+", uiaa = "9-", yds = "5.12a", ewbank = "26" }
-    , { french = "7b", uiaa = "9-/9", yds = "5.12b", ewbank = "27" }
+    , { french = "6c+", uiaa = "8", yds = "5.11c", ewbank = "23/24" }
+    , { french = "7a", uiaa = "8+", yds = "5.11d", ewbank = "24" }
+    , { french = "7a+", uiaa = "8+/9-", yds = "5.12a", ewbank = "25" }
+    , { french = "7b", uiaa = "9-", yds = "5.12b", ewbank = "26" }
+    , { french = "7b+", uiaa = "9-/9", yds = "5.12c", ewbank = "27" }
+    , { french = "7c", uiaa = "9", yds = "5.12d", ewbank = "28" }
+    , { french = "7c+", uiaa = "9+", yds = "5.13a", ewbank = "29" }
+    , { french = "8a", uiaa = "9+/10-", yds = "5.13b", ewbank = "30" }
+    , { french = "8a+", uiaa = "10-/10", yds = "5.13c", ewbank = "31" }
+    , { french = "8b", uiaa = "10/10+", yds = "5.13d", ewbank = "32" }
+    , { french = "8b+", uiaa = "10+", yds = "5.14a", ewbank = "33" }
+    , { french = "8c", uiaa = "11-", yds = "5.14b", ewbank = "34" }
+    , { french = "8c+", uiaa = "11-/11", yds = "5.14c", ewbank = "35" }
+    , { french = "9a", uiaa = "11/11+", yds = "5.14d", ewbank = "36" }
+    , { french = "9a+", uiaa = "11+", yds = "5.15a", ewbank = "37" }
     ]
 
 

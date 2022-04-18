@@ -48,7 +48,7 @@ reproducible.
 - [X] script building
 - [X] script deployment
 - [X] style for mobile
-- [ ] add missing climbing grades
+- [X] add missing climbing grades
 - [ ] bouldering grades?
     - colors of holds at local gyms converted?
     - rotating 3D hold models colored for difficulty?
